@@ -1,0 +1,48 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+    display: inline-block;
+    width: 647px;
+    height: 897px;
+    background: url('../../content/images/library.jpg') no-repeat center top;
+    background-size: contain;
+}
+
+.loginRegister{
+
+font-size:1.2em;
+}
+
+.text{
+font-size:1.2em;
+}
+
+#title{
+margin-bottom:60px;
+margin-top:10px;
+text-align:center;
+font-weight:400;
+}
+
+#imgLib{
+width:800px;
+}
+
+#pagInic{
+margin-left:100px;
+margin-right:50px;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    .hipster {
+        background: url('../../content/images/library.jpg') no-repeat center top;
+        background-size: contain;
+    }
+}

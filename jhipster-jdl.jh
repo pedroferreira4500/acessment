@@ -1,0 +1,36 @@
+entity Book {
+name String required,
+price Float required,
+stock Integer required,
+}
+
+entity Author {
+name String required,
+}
+
+entity Client {
+name String required,
+email String required,
+password String required
+}
+
+entity Basket {
+
+}
+
+entity Sales {
+date Instant required,
+}
+
+
+
+relationship OneToMany {
+Book to Basket {book(name)} 
+Client to Basket {client(name)}
+Author{book} to Book {writer(name)} 
+Book to Sales {book(name)}
+Client to Sales {client(name)}
+}
+
+
+

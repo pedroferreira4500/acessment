@@ -1,0 +1,32 @@
+<div >
+
+    <div id="pagInic">
+        <h1 class="display-4" id="title">Book Store</h1>
+        <div class="row">
+        <div class="col-md-6">
+            <span class="hipster img-fluid rounded" id="imgLib" ></span>
+        </div>
+        <div [ngSwitch]="isAuthenticated()" class="col-md-6" >
+
+            <div class="alert alert-success" *ngSwitchCase="true" style="width:80%">
+                <span class="text" *ngIf="account"
+                   > Welcome Back {{account.login}}. </span>
+                   <span class="text" *ngIf="account"
+                   >Take a look at our Book Collection</span>
+            </div>
+
+            <div class="alert alert-warning" *ngSwitchCase="false" style="width:80%">
+                <span class="text">Welcome to the Book Store , please</span>
+                <a class="alert-link" style="color:#533f03;font-size:1.2em;" (click)="login()">LOGIN</a><span class="text"> to check out our Book Collection.</span><br>
+                <span class="text">We have a huge collection of various Authors and offer competitive prices.</span>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false" style="width:80%">
+
+                <span class="text">You don't have an account yet?</span><br>
+                <span class="text">You can </span>
+                <a class="alert-link" routerLink="register" class="loginRegister">REGISTER</a><span class="text"> for free and start expanding your book collection today.</span>
+            </div>
+        </div>
+        </div>
+</div>
+</div>

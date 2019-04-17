@@ -1,0 +1,56 @@
+{
+    "name": "Book",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "stock",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "basket",
+            "otherEntityName": "basket",
+            "otherEntityRelationshipName": "book"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sales",
+            "otherEntityName": "sales",
+            "otherEntityRelationshipName": "book"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "writer",
+            "otherEntityName": "author",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "book"
+        }
+    ],
+    "changelogDate": "20190220134015",
+    "entityTableName": "book",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

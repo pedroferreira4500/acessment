@@ -1,0 +1,29 @@
+{
+    "name": "Basket",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "book",
+            "otherEntityName": "book",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "book"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "client"
+        }
+    ],
+    "changelogDate": "20190220134018",
+    "entityTableName": "basket",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

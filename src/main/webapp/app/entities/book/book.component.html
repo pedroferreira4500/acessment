@@ -1,0 +1,72 @@
+<div>
+   <h2 id="page-heading">
+        <span>Books</span>
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-book" [routerLink]="['/book/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Book
+            </span>
+        </button>
+    </h2> <br>
+    <jhi-alert></jhi-alert>
+
+    <div id="searchComponent">
+        <input id="searchBox" (keyup)="searchTitle($event.target.value)" placeholder="Search by BookTitle"/>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="books">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th *jhiHasAnyAuthority="'ROLE_ADMIN'" ><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Price</span></th>
+            <th *jhiHasAnyAuthority="'ROLE_ADMIN'"><span>Stock</span></th>
+            <th><span>Writer</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let book of books">
+                <td *jhiHasAnyAuthority="'ROLE_ADMIN'" ><a [routerLink]="['/book', book.id, 'view' ]">{{book.id}}</a></td>
+                <td>{{book.name}}</td>
+                <td>{{book.price}}&euro;</td>
+                <td *jhiHasAnyAuthority="'ROLE_ADMIN'" >{{book.stock}}</td>
+                <td>
+                    <div *ngIf="book.writer">
+                        <a [routerLink]="['../author', book.writer?.id, 'view' ]" >{{book.writer?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/book', book.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button *jhiHasNoAuthority="'ROLE_ADMIN'" type="submit" (click)="console.log(loadAll())" class="btn btn-primary btn-sm">
+                            <i class="fas fa-cart-plus"></i>
+                            <span class="d-none d-md-inline">Add to Cart</span>
+                        </button>
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
+                                [routerLink]="['/book', book.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
+                                [routerLink]="['/', 'book', { outlets: { popup: book.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon *jhiHasAnyAuthority="'ROLE_ADMIN'" [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

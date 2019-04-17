@@ -1,0 +1,6 @@
+/* after changing this file run 'npm run webpack:build' */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.footer{
+background-color: black;
+color:white;
+}
