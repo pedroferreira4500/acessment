@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Basket } from 'app/shared/model/basket.model';
 import { BasketService } from './basket.service';
+import { BasketClientComponent } from './basket-client.component';
 import { BasketComponent } from './basket.component';
 import { BasketDetailComponent } from './basket-detail.component';
 import { BasketUpdateComponent } from './basket-update.component';
@@ -33,8 +34,17 @@ export const basketRoute: Routes = [
         path: '',
         component: BasketComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_ADMIN'],
             pageTitle: 'Baskets'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'mybasket',
+        component: BasketClientComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Shopping Cart'
         },
         canActivate: [UserRouteAccessService]
     },
@@ -73,7 +83,7 @@ export const basketRoute: Routes = [
             pageTitle: 'Baskets'
         },
         canActivate: [UserRouteAccessService]
-    }
+    },
 ];
 
 export const basketPopupRoute: Routes = [

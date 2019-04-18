@@ -26,8 +26,13 @@
                         </span>
                     </a>
                 </li>
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="nav-item">
+                <a class="link nav-link" *ngSwitchCase="true" routerLink="basket" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <span class="link">Baskets</span>
+                </a> 
+            </li>
                 <li *jhiHasNoAuthority="'ROLE_ADMIN'" class="nav-item">
-                        <a class="link nav-link" *ngSwitchCase="true" routerLink="book" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="link nav-link" *ngSwitchCase="true" [routerLink]="['/basket', 'mybasket']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                                       <span class="link">Shopping Cart <i class="fas fa-shopping-cart"></i></span>
                         </a>
                     </li>

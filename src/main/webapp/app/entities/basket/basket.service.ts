@@ -35,4 +35,8 @@ export class BasketService {
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
+
+    searchClient(clientId: number): Observable<EntityResponseType> {
+        return this.http.get<IBasket>(this.resourceUrl + '/?clientId=' + clientId, { observe: 'response' });
+    }
 }

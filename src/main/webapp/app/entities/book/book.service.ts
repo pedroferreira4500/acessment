@@ -37,10 +37,10 @@ export class BookService {
     }
 
     search(title: string): Observable<EntityArrayResponseType> {
-        return this.http.get<IBook[]>(this.resourceUrl + '/?title=' + title, { observe: 'response'});
+        return this.http.get<IBook[]>(this.resourceUrl + '/?title=' + title, { observe: 'response' });
     }
 
     searchAuthor(author: string): Observable<EntityArrayResponseType> {
-        return this.http.get<IBook[]>(this.resourceUrl + '/?author=' + author, { observe: 'response'});
+        return this.http.get<IBook[]>(this.resourceUrl + '/?author=' + author, { observe: 'response' });
     }
 }

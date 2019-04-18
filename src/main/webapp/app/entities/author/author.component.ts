@@ -39,20 +39,20 @@ export class AuthorComponent implements OnInit, OnDestroy {
             );
     }
 
-        searchAuthor(name) {
+    searchAuthor(name) {
         this.authorService
-        .search(name)
-        .pipe(
-            filter((res: HttpResponse<IAuthor[]>) => res.ok),
-            map((res: HttpResponse<IAuthor[]>) => res.body)
+            .search(name)
+            .pipe(
+                filter((res: HttpResponse<IAuthor[]>) => res.ok),
+                map((res: HttpResponse<IAuthor[]>) => res.body)
             )
             .subscribe(
                 (res: IAuthor[]) => {
                     this.authors = res;
-                    },
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                   );
-                   }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
 
     ngOnInit() {
         this.loadAll();

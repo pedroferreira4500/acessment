@@ -52,19 +52,19 @@ export class BookComponent implements OnInit, OnDestroy {
 
     searchTitle(title) {
         this.bookService
-        .search(title)
-        .pipe(
-            filter((res: HttpResponse<IBook[]>) => res.ok),
-            map((res: HttpResponse<IBook[]>) => res.body)
-        )
-        .subscribe(
-            (res: IBook[]) => {
-                this.books=res;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+            .search(title)
+            .pipe(
+                filter((res: HttpResponse<IBook[]>) => res.ok),
+                map((res: HttpResponse<IBook[]>) => res.body)
+            )
+            .subscribe(
+                (res: IBook[]) => {
+                    this.books = res;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
     }
-    
+
     ngOnInit() {
         this.loadAll();
         this.accountService.identity().then(account => {
