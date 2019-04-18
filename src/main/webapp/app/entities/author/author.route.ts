@@ -8,6 +8,7 @@ import { Author } from 'app/shared/model/author.model';
 import { AuthorService } from './author.service';
 import { AuthorComponent } from './author.component';
 import { AuthorDetailComponent } from './author-detail.component';
+import { AuthorBooksComponent } from './author-books.component';
 import { AuthorUpdateComponent } from './author-update.component';
 import { AuthorDeletePopupComponent } from './author-delete-dialog.component';
 import { IAuthor } from 'app/shared/model/author.model';
@@ -65,6 +66,18 @@ export const authorRoute: Routes = [
     {
         path: ':id/edit',
         component: AuthorUpdateComponent,
+        resolve: {
+            author: AuthorResolve
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Authors'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: ':id/books',
+        component: AuthorBooksComponent,
         resolve: {
             author: AuthorResolve
         },

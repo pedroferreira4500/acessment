@@ -11,12 +11,13 @@ import {
     authorRoute,
     authorPopupRoute
 } from './';
+import { AuthorBooksComponent } from './author-books.component';
 
 const ENTITY_STATES = [...authorRoute, ...authorPopupRoute];
 
 @NgModule({
     imports: [LibrarySharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [AuthorComponent, AuthorDetailComponent, AuthorUpdateComponent, AuthorDeleteDialogComponent, AuthorDeletePopupComponent],
+    declarations: [AuthorComponent, AuthorDetailComponent, AuthorUpdateComponent, AuthorDeleteDialogComponent, AuthorDeletePopupComponent, AuthorBooksComponent],
     entryComponents: [AuthorComponent, AuthorUpdateComponent, AuthorDeleteDialogComponent, AuthorDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

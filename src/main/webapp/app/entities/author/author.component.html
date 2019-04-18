@@ -35,14 +35,14 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">View</span>
                         </button>
-                        <button type="submit" [routerLink]="['/author', author.id, 'view' ]"
+                        <button type="submit" [routerLink]="['/author', author.id, 'books' ]"
                         class="btn btn-primary btn-sm">
                             <i class="fas fa-book-open"></i>
                             <span class="d-none d-md-inline">Books</span>
                         </button>
                         <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
                                 [routerLink]="['/author', author.id, 'edit']"
-                                class="btn btn-success btn-sm">
+                                class="btn btn-warning btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline">Edit</span>
                         </button>
